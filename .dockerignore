@@ -1,0 +1,4 @@
+.web
+.git
+__pycache__/*
+uploaded_files

@@ -2,10 +2,10 @@
 import reflex as rx
 
 from web.styles import styles
-from web.styles.styles import Size
+from web.styles.styles import Size, SizeInt
 
 
-def link_button(title: str, body: str, url: str) -> rx.Component:
+def link_button(title: str, body: str, url: str, is_external=False) -> rx.Component:
 
     return rx.link(
         rx.button(
@@ -22,7 +22,7 @@ def link_button(title: str, body: str, url: str) -> rx.Component:
                     justify="center",
                     align_items="start",
                     width="100%",
-                    spacing="1",
+                    spacing=SizeInt.SMALL.value,
                     margin=Size.ZERO.value,
                 ),
                 align="center",
@@ -30,6 +30,6 @@ def link_button(title: str, body: str, url: str) -> rx.Component:
             ),
         ),
         href=url,
-        is_external=True,
+        is_external=is_external,
         width="100%"
     )

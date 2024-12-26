@@ -8,7 +8,7 @@ from web.styles.fonts import Font
 from web.components.link_icon import link_icon
 from web.components.info_text import info_text
 
-def header() -> rx.Component:
+def header(details:bool = True) -> rx.Component:
 
     return rx.box(
         rx.vstack(
@@ -28,7 +28,6 @@ def header() -> rx.Component:
                     rx.text(
                         "La mejor perrita del mundo",
                         color=TextColor.HEADER.value,
-
                     ),
                     rx.hstack(
                         link_icon("."),
@@ -42,19 +41,26 @@ def header() -> rx.Component:
                 align="start",
                 gap=styles.Size.BIG.value,
             ),
-            rx.flex(
-                info_text("2", "años de vida perruna"),
-                rx.spacer(),
-                info_text("+10", "ganas de jugar"),
-                rx.spacer(),
-                info_text("+1000", "amor que dar"),
-                width="100%"
-            ),
-            rx.text(
-                """Es la perrhija de Paloma y Alberto. 
-                Es muy activa y le gusta salir de paseo todas las tardes. 
-                No le gustan los gatos y encontrarse con otros perros cuando va con correa.""",
-                font_size=styles.Size.MEDIUM.value,
+            rx.cond(
+                details,
+                rx.vstack(
+                    rx.flex(
+                        info_text("2", "años de vida perruna"),
+                        rx.spacer(),
+                        info_text("+10", "ganas de jugar"),
+                        rx.spacer(),
+                        info_text("+1000", "amor que dar"),
+                        width="100%"
+                    ),
+                    rx.text(
+                        """Es la perrhija de Paloma y Alberto. 
+                        Es muy activa y le gusta salir de paseo todas las tardes. 
+                        No le gustan los gatos y encontrarse con otros perros cuando va con correa.""",
+                        font_size=styles.Size.MEDIUM.value,
+                    ),
+                    align="start",
+                    gap=styles.Size.BIG.value,
+                )
             ),
             align="center",
             gap=styles.Size.BIG,

@@ -3,7 +3,7 @@ from enum import Enum
 import reflex as rx
 
 from web.styles.colors import Color, TextColor
-from web.styles.fonts import Font
+from web.styles.fonts import Font, FontWeight
 
 
 # Constants
@@ -18,8 +18,24 @@ class Size(Enum):
     LARGE = "1.5em"
     BIG = "2em"
     VERY_BIG = "8em"
+    MAXIMUM = "15em"
+
+class SizeInt(Enum):
+    ZERO = "0"
+    SMALL = "1"
+    MEDIUM = "3"
+    DEFAULT = "4"
+    LARGE = "5"
+    BIG = "6"
+    VERY_BIG = "8"
 
 # Styles
+
+STYLESHEETS = [
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap",
+    "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap"
+]
+
 BASE_STYLE = {
     "font-family": Font.DEFAULT.value,
     "background_color": Color.BACKGROUND.value,
@@ -47,12 +63,14 @@ BASE_STYLE = {
 
 nav_bar_title_style = dict(
     font_family=Font.LOGO.value,
+    font_weight=FontWeight.LIGHT.value,
     font_size=Size.LARGE.value,
 
 )
 
 title_style = dict(
     font_family=Font.TITLE.value,
+    font_weight=FontWeight.MEDIUM.value,
     width="100%",
     align="center",
     color=TextColor.HEADER.value,
@@ -61,11 +79,13 @@ title_style = dict(
 
 button_title_style = dict(
     font_family=Font.DEFAULT.value,
+    font_weight=FontWeight.MEDIUM.value,
     font_size=Size.DEFAULT.value,
     color=TextColor.HEADER.value,
 )
 
 button_body_style = dict(
+    font_weight=FontWeight.LIGHT.value,
     font_size=Size.MEDIUM.value,
     color=TextColor.BODY.value,
 )

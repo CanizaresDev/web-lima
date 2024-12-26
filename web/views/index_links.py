@@ -1,14 +1,15 @@
 
 import reflex as rx
 
-from web.styles.styles import Size
+from web.styles.styles import Size, SizeInt
+from web.routes import Route
 
 from web import constants as const
 from web.components.title import title
 from web.components.link_button import link_button
 
 
-def links() -> rx.Component:
+def index_links() -> rx.Component:
 
     return rx.vstack(
         title("Aficiones"),
@@ -16,6 +17,10 @@ def links() -> rx.Component:
         link_button("Jugar", "Cuando mis papis quieren", "."),
         link_button("Pasear", "Cuando mis papis pueden", "."),
         link_button("Sofá", "Siempre que estoy en casa", "."),
+        link_button("Cursos", "Todo lo quete puedo enseñar", Route.COURSES.value),
+
+
+        rx.spacer(height=Size.MAXIMUM.value),
 
         title("Contacto"),
         link_button(
@@ -30,5 +35,5 @@ def links() -> rx.Component:
         ),
         align="center",
         width="100%",
-        spacing=Size.MEDIUM.value,
+        spacing=SizeInt.MEDIUM.value,
     )
