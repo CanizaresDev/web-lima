@@ -4,7 +4,6 @@ config = rx.Config(
     app_name="web",
     cors_allowed_origins=[
         "http://localhost:3000",
-        "https://web-lima.up.railway.app"
-
+        "https://lima-web-orcin.vercel.app"
     ]
 )
