@@ -7,4 +7,3 @@ reflex init
 API_URL=https://web-lima.up.railway.app reflex export --frontend-only
 unzip frontend.zip -d public
 rm -f frontend.zip
-deactivate
