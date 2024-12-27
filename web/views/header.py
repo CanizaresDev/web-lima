@@ -8,8 +8,9 @@ from web.styles.fonts import Font
 from web.components.link_icon import link_icon
 from web.components.info_text import info_text
 
-def header(details:bool = True) -> rx.Component:
 
+def header(details:bool = True, live: bool = False) -> rx.Component:
+    
     return rx.box(
         rx.vstack(
             rx.hstack(
@@ -21,9 +22,24 @@ def header(details:bool = True) -> rx.Component:
                     high_contrast=True,
                 ),
                 rx.vstack(
-                    rx.heading(
-                        "Lima la Mejor",
-                        style=styles.title_style,
+                    rx.hstack(
+                        rx.heading(
+                            "Lima la Mejor",
+                            style=styles.title_style,
+                        ),
+                        rx.cond(
+                            live,
+                            rx.badge(
+                                "Live",
+                                variant="surface",
+                                size="2",
+                                color_scheme="green",
+                                radius="full",
+                            )
+                        ),
+                        align="center",
+                        justify="between",
+                        width="100%",
                     ),
                     rx.text(
                         "La mejor perrita del mundo",
